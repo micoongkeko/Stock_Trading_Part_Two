@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: ENV['MAILER_EMAIL']
   layout 'mailer'
 
   def send_welcome_email(user)
