@@ -23,14 +23,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def update
   #   super
   # end
-
-  # def update
-  #   @approved = User.find(params[:id]).try(:approved)
-  #   super
-  #   if @user.valid? && @user.approved != approved
-  #       UserMailer.send_approved_email(self).deliver
-  #   end
-  # end
   
   # DELETE /resource
   # def destroy
