@@ -1,11 +1,15 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column align-items-center justify-items-center">
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading">Welcome to your soon-to-be favorite trading site.</h1>
+        <p class="lead">StonX is where you can buy and sell shares from some of your favorite companies. Most stock trading sites actually require you to have money to trade, but in stonX, you only need an email and password and you're all set!</p>
+        <p class="lead">
+          <a href="users/sign_up" class="btn btn-lg btn-secondary">Begin trading</a>
+        </p>
+      </main>
 
-
-<% if current_user.nil? %>
-	<%= link_to new_user_session_path, class: 'login-button' do %>Sign in<% end %>
-    <%= link_to('Register', new_user_registration_path)  %>
-<% else %>
-	<%= link_to users_path, class: 'login-button' do %>Go to dashboard<% end %>
-	<%= link_to destroy_user_session_path, method: :delete do %>Log out<% end %>
-<% end %>
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>This site is a fictional stock trading app made by <a href="https://www.micoongkeko.com">Mico Ongkeko</a>.</p>
+        </div>
+      </footer>
+    </div>

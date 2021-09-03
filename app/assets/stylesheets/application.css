@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background: #ffba24;
+  height: 90vh;
+  width: 100vw;
+}
+
+.deviseform {
+  width: 100vw;
+  height: 100vh;
+}
