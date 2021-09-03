@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_03_124432) do
+ActiveRecord::Schema.define(version: 2021_09_03_134003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,22 +18,22 @@ ActiveRecord::Schema.define(version: 2021_09_03_124432) do
   create_table "stocks", force: :cascade do |t|
     t.string "symbol"
     t.string "name"
-    t.decimal "price", precision: 10, scale: 2
+    t.decimal "price"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.bigint "stocks_id"
+    t.bigint "stock_id"
     t.bigint "user_id"
     t.boolean "buy"
     t.boolean "sell"
-    t.decimal "price", precision: 10, scale: 2
+    t.decimal "price"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["stocks_id"], name: "index_transactions_on_stocks_id"
+    t.index ["stock_id"], name: "index_transactions_on_stock_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
@@ -53,6 +53,6 @@ ActiveRecord::Schema.define(version: 2021_09_03_124432) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "transactions", "stocks", column: "stocks_id"
+  add_foreign_key "transactions", "stocks"
   add_foreign_key "transactions", "users"
 end
