@@ -1,0 +1,13 @@
+<%= form_for @stocks do |f| %>
+
+<%= f.label :symbol %></br>
+<%= f.text_field :symbol class: "form-control" %>
+
+<%= f.label :name %></br>
+<%= f.text_field :name class: "form-control" %>
+
+<%= f.label :price %></br>
+<%= f.number_field :price class: "form-control" %>
+
+<%= f.label :quantity %></br>
+<%= f.number_field :quantity class: "form-control" %>

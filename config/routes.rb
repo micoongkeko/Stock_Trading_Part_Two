@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
+  post 'stocks/transact'
   get 'home/index'
   get '/dashboard' => 'users#show', as: :dashboard
   devise_for :users

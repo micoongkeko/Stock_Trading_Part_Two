@@ -5,4 +5,7 @@ class UsersController < ApplicationController
     #     @user = User.find(params[:id])
     #     @user_subscriptions = UserSubscription.find_active_subscriptions_by_user(@user)
     end
+
+
+
 end

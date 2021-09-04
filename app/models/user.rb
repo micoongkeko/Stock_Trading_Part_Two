@@ -18,7 +18,6 @@ def send_confirmation_email
   end
 end
 
-
 def active_for_authentication? 
     super && approved? 
   end 
