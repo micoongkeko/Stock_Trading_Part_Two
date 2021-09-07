@@ -47,29 +47,37 @@ class StocksController < ApplicationController
         @stock = Stock.find(params[:transact][:stock_id])
 
         
-        if params[:transact][:buy] = true
+        if params[:transact][:buy] == true
             @transaction = Transaction.create!(
-                stock_id: params[:transact][:stock_id],
+                stock_id: @stock.id,
                 user_id: current_user.id,
                 buy: params[:transact][:buy],
                 sell: params[:transact][:sell],
-                price: Stock.find(params[:transact][:stock_id]).price,
+                price: @stock.price,
                 quantity: params[:transact][:quantity]
             )
             @user.balance -= (@transaction.price * @transaction.quantity)
             @stock.quantity -= @transaction.quantity
             @user.save!
             @stock.save!
-        elsif (params[:transact][:sell] = true) && (@stock_active >= params[:transact][:quantity])
+        elsif (params[:transact][:sell] == true) && (@stock_active >= params[:transact][:quantity])
+            @transaction = Transaction.create!(
+                stock_id: @stock.id,
+                user_id: current_user.id,
+                buy: params[:transact][:buy],
+                sell: params[:transact][:sell],
+                price: @stock.price,
+                quantity: params[:transact][:quantity]
+            )
             @user.balance += (@transaction.price * @transaction.quantity)
             @stock.quantity += @transaction.quantity
             @user.save!
             @stock
-        elsif @stock_active < params[:transact][:quantity]
+        elsif @stock_active < params[:transact][:quantity].to_i
             flash[:notice] = "You do not have enough of this stock to sell."
         end
 
-        byebug
+        # byebug
         redirect_to users_path
         flash[:notice] = "Transaction successful"
     end
