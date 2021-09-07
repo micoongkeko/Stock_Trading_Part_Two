@@ -1,0 +1,32 @@
+<h1>Listed Stocks
+</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Stock ID</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>
+      </th>
+      <th>
+      </th>
+      <th>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stocks.each do |stock|
+ %>
+    <tr>
+      <td><%= stock.id %>
+      </td>
+      <td><%= stock.name %>
+      </td>
+      <td><%= stock.quantity %>
+      </td>
+    </tr>
+  <% end %></tbody>
+</table>
+<br />
+
+<%= render 'stocks/form' %>

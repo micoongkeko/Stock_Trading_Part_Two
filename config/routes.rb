@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
+  get 'stocks/index'
+  get 'stocks/transact'
   post 'stocks/transact'
   get 'home/index'
   get '/dashboard' => 'users#show', as: :dashboard

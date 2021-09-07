@@ -1,13 +1,26 @@
-<%= form_for @stocks do |f| %>
+<%= form_for("transact", url:"/stocks/transact", method:"post") do |f| %>
 
-<%= f.label :symbol %></br>
-<%= f.text_field :symbol class: "form-control" %>
+<%= f.label :stock_id %></br>
+<%= f.number_field :stock_id, class: "form-control" %>
 
+<% if false %>
 <%= f.label :name %></br>
-<%= f.text_field :name class: "form-control" %>
+<%= f.text_field :name, class: "form-control" %>
 
 <%= f.label :price %></br>
-<%= f.number_field :price class: "form-control" %>
+<%= f.number_field :price, class: "form-control" %>
+<% end %>
+
+<div class="form-label-group">
+    <%= f.check_box :buy %>
+    <%= f.label "Buy" %></br>
+    <%= f.check_box :sell %>
+    <%= f.label "Sell" %></br>
+
+</div>
 
 <%= f.label :quantity %></br>
-<%= f.number_field :quantity class: "form-control" %>
+<%= f.number_field :quantity, class: "form-control" %>
+
+<%= f.submit "Send Order", :class => 'btn btn-dark' %>
+<% end %>

@@ -27,7 +27,8 @@
           <%= link_to new_user_session_path, class: 'nav-item nav-link' do %>Sign in<% end %>
           <%= link_to new_user_registration_path, class: 'nav-item nav-link' do %>Register<% end %>
         <% else %>
-          <%= link_to dashboard_path(current_user), class: 'nav-item nav-link' do %>Go to dashboard<% end %>
+          <%= link_to users_path, class: 'nav-item nav-link' do %>Go to dashboard<% end %>
+          <%= link_to stocks_index_path, class: 'nav-item nav-link' do %>Trade Stocks<% end %>
           <%= link_to destroy_user_session_path, class: 'nav-item nav-link', method: :delete do %>Log out<% end %>
         <% end %>
       </div>
